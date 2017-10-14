@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.web.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.DashboardController">
+   <children>
+      <MenuBar focusTraversable="false" prefHeight="25.0" prefWidth="700.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+                  <MenuItem fx:id="resetData" mnemonicParsing="false" onAction="#handleMenuItem" text="Reset Data" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+              <MenuItem fx:id="fileClose" mnemonicParsing="false" onAction="#handleMenuItem" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+                  <MenuItem fx:id="addCategory" mnemonicParsing="false" onAction="#handleMenuItem" text="Add category" />
+                  <MenuItem fx:id="removeCategory" mnemonicParsing="false" onAction="#handleMenuItem" text="Remove category" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem fx:id="helpAbout" mnemonicParsing="false" onAction="#handleMenuItem" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <ImageView fitHeight="58.0" fitWidth="58.0" layoutX="132.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/wallet.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="134.0" layoutY="113.0" text="Balance">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <Label fx:id="balanceAmount" layoutX="219.0" layoutY="73.0" text="000.00">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="59.0" fitWidth="58.0" layoutX="403.0" layoutY="56.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/card.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="390.0" layoutY="113.0" text="Bank account">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <Label fx:id="bankAmount" layoutX="497.0" layoutY="73.0" text="000.00">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Button fx:id="transactionButton" defaultButton="true" focusTraversable="false" layoutX="575.0" layoutY="195.0" mnemonicParsing="false" onAction="#handleTransaction" text="Transaction" textAlignment="CENTER" />
+      <Label fx:id="amountInfo" alignment="CENTER" layoutX="592.0" layoutY="254.0" prefHeight="19.0" prefWidth="79.0">
+         <font>
+            <Font size="13.0" />
+         </font></Label>
+      <Label fx:id="descriptionInfo" layoutX="196.0" layoutY="252.0" prefHeight="17.0" prefWidth="189.0">
+         <font>
+            <Font size="13.0" />
+         </font></Label>
+      <Label fx:id="walletBank" alignment="CENTER" contentDisplay="CENTER" layoutX="523.0" layoutY="254.0" textAlignment="CENTER">
+         <font>
+            <Font size="13.0" />
+         </font></Label>
+      <Label fx:id="dateInfo" layoutX="58.0" layoutY="253.0">
+         <font>
+            <Font size="13.0" />
+         </font></Label>
+      <Separator layoutX="36.0" layoutY="163.0" prefHeight="3.0" prefWidth="630.0" />
+      <Label layoutX="53.0" layoutY="183.0" text="Last input">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="58.0" layoutY="233.0" text="Date">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="196.0" layoutY="233.0" text="Description">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="599.0" layoutY="233.0" text="Amount">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="404.0" layoutY="233.0" text="Category">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="categoryInfo" alignment="CENTER" contentDisplay="TOP" layoutX="389.0" layoutY="254.0" prefHeight="17.0" prefWidth="90.0" textAlignment="CENTER">
+         <font>
+            <Font size="13.0" />
+         </font></Label>
+      <Button fx:id="seeAll" focusTraversable="false" layoutX="193.0" layoutY="196.0" mnemonicParsing="false" onAction="#handleSeeAll" text="See All">
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor></Button>
+      <Label layoutX="524.0" layoutY="233.0" text="Type">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="104.0" fitWidth="117.0" layoutX="151.0" layoutY="297.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/quote.png" />
+         </image>
+      </ImageView>
+      <Separator layoutX="197.0" layoutY="300.0" prefHeight="2.0" prefWidth="299.0" />
+      <Label layoutX="254.0" layoutY="332.0" prefHeight="17.0" prefWidth="149.0" text="Balancing your money " />
+      <Label layoutX="255.0" layoutY="344.0" prefHeight="24.0" prefWidth="315.0" text="is the key to having enough.">
+         <font>
+            <Font size="19.0" />
+         </font></Label>
+      <Label layoutX="381.0" layoutY="367.0" text="― Elizabeth Warren" />
+   </children>
+</Pane>

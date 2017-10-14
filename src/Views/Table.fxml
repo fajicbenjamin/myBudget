@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.TableController">
+   <children>
+      <MenuBar focusTraversable="false" prefHeight="25.0" prefWidth="700.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+                  <MenuItem fx:id="resetData" mnemonicParsing="false" onAction="#handleMenuItem" text="Reset Data" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+              <MenuItem fx:id="fileClose" mnemonicParsing="false" onAction="#handleMenuItem" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+                  <MenuItem fx:id="addCategory" mnemonicParsing="false" onAction="#handleMenuItem" text="Add category" />
+                  <MenuItem fx:id="removeCategory" mnemonicParsing="false" onAction="#handleMenuItem" text="Remove category" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem fx:id="helpAbout" mnemonicParsing="false" onAction="#handleMenuItem" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <TableView fx:id="tableview" focusTraversable="false" layoutY="25.0" prefHeight="318.0" prefWidth="691.0">
+        <columns>
+          <TableColumn fx:id="c1" prefWidth="153.0" text="Timestamp" />
+          <TableColumn fx:id="c2" editable="false" prefWidth="242.0" sortable="false" text="Description" />
+            <TableColumn fx:id="c3" minWidth="5.6666717529296875" prefWidth="99.0" text="Category" />
+            <TableColumn fx:id="c4" prefWidth="92.0" text="Type" />
+            <TableColumn fx:id="c5" prefWidth="104.0" text="Amount" />
+        </columns>
+      </TableView>
+      <Button fx:id="backButton" focusTraversable="false" layoutX="601.0" layoutY="416.0" mnemonicParsing="false" onAction="#backButtonHandle" prefHeight="25.0" prefWidth="70.0" text="Back" />
+      <DatePicker fx:id="datePicker" focusTraversable="false" layoutX="24.0" layoutY="384.0" />
+      <Label layoutX="30.0" layoutY="361.0" text="Pick date to filter transactions" />
+      <Button fx:id="clearFilter" focusTraversable="false" layoutX="601.0" layoutY="386.0" mnemonicParsing="false" onAction="#handleClearFilter" text="Clear filter" />
+      <Label layoutX="247.0" layoutY="361.0" text="Search description" />
+      <TextField fx:id="descriptionField" focusTraversable="false" layoutX="222.0" layoutY="384.0" />
+      <TextField fx:id="categoryField" focusTraversable="false" layoutX="394.0" layoutY="384.0" />
+      <Label layoutX="426.0" layoutY="361.0" text="Search category" />
+      <Button fx:id="searchButton" defaultButton="true" focusTraversable="false" layoutX="601.0" layoutY="355.0" mnemonicParsing="false" onAction="#handleFilter" prefHeight="25.0" prefWidth="70.0" text="Search" />
+   </children>
+</Pane>

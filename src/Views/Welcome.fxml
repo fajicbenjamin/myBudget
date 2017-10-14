@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="450.0" prefWidth="700.0" style="-fx-background-color: #eaeafa;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.WelcomeController">
+   <children>
+      <ImageView fitHeight="202.0" fitWidth="196.0" layoutX="256.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/icon.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="267.0" layoutY="69.0" text="myBudget">
+         <font>
+            <Font name="AppleMyungjo Regular" size="39.0" />
+         </font>
+      </Label>
+      <Button fx:id="startApp" focusTraversable="false" layoutX="302.0" layoutY="353.0" mnemonicParsing="false" onAction="#startAppClicked" prefHeight="25.0" prefWidth="98.0" text="Start app!" />
+   </children>
+</AnchorPane>

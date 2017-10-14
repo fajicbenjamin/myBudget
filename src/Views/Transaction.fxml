@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.TransactionController">
+   <children>
+      <MenuBar focusTraversable="false" prefHeight="25.0" prefWidth="700.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+                  <MenuItem fx:id="resetData" mnemonicParsing="false" onAction="#handleMenuItem" text="Reset Data" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+              <MenuItem fx:id="fileClose" mnemonicParsing="false" onAction="#handleMenuItem" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+                  <MenuItem fx:id="addCategory" mnemonicParsing="false" onAction="#handleMenuItem" text="Add category" />
+                  <MenuItem fx:id="removeCategory" mnemonicParsing="false" onAction="#handleMenuItem" text="Remove category" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem fx:id="helpAbout" mnemonicParsing="false" onAction="#handleMenuItem" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <ComboBox fx:id="categoryBox" focusTraversable="false" layoutX="52.0" layoutY="119.0" prefHeight="29.0" prefWidth="158.0" promptText="Category..." />
+      <ComboBox fx:id="incomeExpenseBox" layoutX="52.0" layoutY="74.0" onAction="#incomeExpenseBoxClicked" prefHeight="29.0" prefWidth="158.0" />
+      <RadioButton fx:id="radioWallet" layoutX="55.0" layoutY="191.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="85.0" text="Wallet">
+         <font>
+            <Font size="14.0" />
+         </font></RadioButton>
+      <RadioButton fx:id="radioBank" layoutX="207.0" layoutY="189.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="75.0" text="Bank">
+         <font>
+            <Font size="14.0" />
+         </font></RadioButton>
+      <Label layoutX="54.0" layoutY="39.0" text="Choose Income or Expense">
+         <font>
+            <Font size="13.0" />
+         </font></Label>
+      <TextField fx:id="descriptionField" layoutX="48.0" layoutY="294.0" prefHeight="0.0" prefWidth="200.0" promptText="i.e. Hamburger &amp; Coke">
+         <font>
+            <Font size="16.0" />
+         </font></TextField>
+      <TextField fx:id="amountField" layoutX="48.0" layoutY="356.0" prefHeight="30.0" prefWidth="200.0" promptText="i.e. 7.46">
+         <font>
+            <Font size="16.0" />
+         </font></TextField>
+      <Label layoutX="48.0" layoutY="265.0" prefHeight="29.0" prefWidth="82.0" text="Description">
+         <font>
+            <Font size="15.0" />
+         </font></Label>
+      <Label layoutX="48.0" layoutY="335.0" text="Amount">
+         <font>
+            <Font size="15.0" />
+         </font></Label>
+      <Button fx:id="submitButton" defaultButton="true" layoutX="437.0" layoutY="364.0" mnemonicParsing="false" onAction="#handleSubmit" prefHeight="29.0" prefWidth="101.0" text="Submit" />
+      <Button fx:id="cancelButton" cancelButton="true" layoutX="545.0" layoutY="364.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="29.0" prefWidth="100.0" text="Cancel" />
+      <ImageView fitHeight="195.0" fitWidth="184.0" layoutX="461.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/icon.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="270.0" layoutY="188.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/card.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="40.0" fitWidth="53.0" layoutX="125.0" layoutY="188.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/wallet.png" />
+         </image>
+      </ImageView>
+   </children>
+</Pane>
