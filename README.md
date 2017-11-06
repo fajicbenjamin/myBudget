@@ -7,7 +7,7 @@
   - Release date: 16.10.2017
   - [Download link](https://www.dropbox.com/s/klrtie222okc1qj/deploy%20v1.0.zip?dl=1)
 
-# Features
+### Features
 
   - Insert a transaction (record) with all detailed info
   - Delete a transaction 
