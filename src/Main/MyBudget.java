@@ -1,6 +1,5 @@
 package Main;
 
-import Model.DBCreate;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
