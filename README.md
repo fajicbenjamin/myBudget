@@ -5,7 +5,7 @@
 
   - Version: 1.0
   - Release date: 16.10.2017
-  - [Download link](https://www.dropbox.com/s/klrtie222okc1qj/deploy%20v1.0.zip?dl=1)
+  - [Download link (update 1.0.3)](https://www.dropbox.com/s/wz1uwegqtn3cc7j/v1.0.3.zip?dl=1)
   
 #### What's new in update 1.0.3
   - Complete redesign of GUI
