@@ -18,16 +18,16 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import Model.DBConnect;
 import Model.Input;
 import Model.MyMenu;
+import com.jfoenix.controls.JFXDatePicker;
+import com.jfoenix.controls.JFXTextField;
 import java.io.IOException;
 import java.sql.Statement;
 import java.util.Optional;
@@ -62,15 +62,9 @@ public class TableController implements Initializable {
     // NEEDED FOR MENU MORE THAN FOR THIS CONTROLLER
     public Label amountInfo;
     public Label descriptionInfo;
-    public Label walletBank;
     public Label dateInfo;
-    public Label categoryInfo;
     public Label balanceAmount;
     public Label bankAmount;
-    
-    //CONTEXT MENU
-    //@FXML
-    //final MenuItem deleteRow = new MenuItem("Delete"); 
     
     // BUTTONS
     @FXML
@@ -82,11 +76,11 @@ public class TableController implements Initializable {
     
     // SEARCH FIELDS
     @FXML
-    private DatePicker datePicker;
+    private JFXDatePicker datePicker;
     @FXML
-    private TextField descriptionField;
+    private JFXTextField descriptionField;
     @FXML
-    private TextField categoryField;
+    private JFXTextField categoryField;
     
     private String filterDate = "";
     private String filterDescription = "";
@@ -199,7 +193,7 @@ public class TableController implements Initializable {
                         } else {
                             // ... user chose CANCEL or closed the dialog
                         } 
-                    } 
+                    }
                 });  
                 contextMenu.getItems().add(removeMenuItem);  
                // Set context menu on row, but use a binding to make it only show for non-empty rows:  
@@ -220,7 +214,7 @@ public class TableController implements Initializable {
 
     @FXML
     private void handleMenuItem(ActionEvent event) throws IOException {
-        MyMenu menu = new MyMenu(event, fileClose, addCategory, removeCategory, helpAbout, resetData, amountInfo, descriptionInfo, walletBank, dateInfo, categoryInfo, balanceAmount, bankAmount);
+        MyMenu menu = new MyMenu("table", event, fileClose, addCategory, removeCategory, helpAbout, resetData, amountInfo, descriptionInfo, dateInfo, balanceAmount, bankAmount, tableview);
     }
     
     @FXML

@@ -1,9 +1,11 @@
 package Main;
 
+import Model.DBCreate;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 /**
@@ -17,12 +19,14 @@ public class MyBudget extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("/Views/Welcome.fxml"));
         
         Scene scene = new Scene(root);
-        
+        stage.getIcons().add(new Image("/img/icon.png"));
+        stage.setTitle("myBudget (version 1.0.3)");
         stage.setScene(scene);
         stage.show();
-         
+        
     }
 
+    
     /**
      * @param args the command line arguments
      */

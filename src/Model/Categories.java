@@ -5,8 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import Model.DBConnect;
-import Model.DBCreate;
 
 /**
  *
@@ -20,15 +18,7 @@ public class Categories {
     DBCreate db = new DBCreate();
     
     public Categories() {
-        categoriesIncomeInitialize();
-        categoriesExpenseInitialize();
-    }
-    
-    public void categoriesIncomeInitialize() {
         getIncomeCategoriesFromDB();
-    }
-    
-    public void categoriesExpenseInitialize() {
         getExpenseCategoriesFromDB();
     }
     

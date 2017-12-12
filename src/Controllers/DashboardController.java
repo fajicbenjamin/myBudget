@@ -18,8 +18,12 @@ import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.stage.Stage;
 import Model.BalanceAmount;
+import Model.Input;
 import Model.LastInput;
 import Model.MyMenu;
+import Model.UserName;
+import java.sql.SQLException;
+import javafx.scene.control.TableView;
 
 /**
  *
@@ -44,19 +48,22 @@ public class DashboardController implements Initializable {
     private Label balanceAmount;
     @FXML
     private Label bankAmount;
+    @FXML
+    private Label username;
     
     public Label amountInfo;
     public Label descriptionInfo;
-    public Label walletBank;
     public Label dateInfo;
-    public Label categoryInfo;
     
     @FXML
     private Button seeAll;
     
+    // NEEDED FOR SAKE OF MENU
+    private TableView<Input> tableview;
+    
     @FXML
     private void handleMenuItem(ActionEvent event) throws IOException {
-        MyMenu menu = new MyMenu(event, fileClose, addCategory, removeCategory, helpAbout, resetData, amountInfo, descriptionInfo, walletBank, dateInfo, categoryInfo, balanceAmount, bankAmount);
+        MyMenu menu = new MyMenu("dashboard", event, fileClose, addCategory, removeCategory, helpAbout, resetData, amountInfo, descriptionInfo, dateInfo, balanceAmount, bankAmount, tableview);
     }
     
     @FXML
@@ -81,6 +88,14 @@ public class DashboardController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        //set username on label in UI from database
+        UserName user = new UserName();
+        try {
+            username.setText(user.getUserName());
+        } catch (SQLException ex) {
+            Logger.getLogger(DashboardController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         try {
             lastInput();
         } catch (Exception ex) {
@@ -99,7 +114,7 @@ public class DashboardController implements Initializable {
     }
     
     public void lastInput() {
-        LastInput ls = new LastInput(amountInfo, descriptionInfo, walletBank, dateInfo, categoryInfo);
+        LastInput ls = new LastInput(amountInfo, descriptionInfo, dateInfo);
     }
     
     public void handleBalanceAmount() throws Exception {

@@ -3,6 +3,9 @@ package Model;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Optional;
+import javafx.scene.control.TextInputDialog;
+import javafx.scene.image.ImageView;
 
 /**
  *
@@ -12,15 +15,16 @@ public class DBCreate {
     private Statement insertStatement = null;
     private Statement budgetStatement = null;
     private Statement categoriesStatement = null;
+    private Statement usernameStatement = null;
     
     public DBCreate() {
         // Set DB System Dir
         // Decide on the db system directory: <userhome>/.myBudget/
-        String userHomeDir = System.getProperty("user.home", ".");
-        String systemDir = userHomeDir + "/.myBudget";
+        //String userHomeDir = System.getProperty("user.home", ".");
+        //String systemDir = userHomeDir + "/.myBudget";
 
         // Set the db system directory.
-        System.setProperty("derby.system.home", systemDir);
+        //System.setProperty("derby.system.home", systemDir);
     }
     
     public void createTables() {
@@ -40,6 +44,10 @@ public class DBCreate {
         "TYPE  VARCHAR(10)," +
         "PRIMARY KEY (CATEGORY))";
         
+        String usernameQuerry = "CREATE TABLE BENJO.USERS (" +
+        "USERNAME VARCHAR(20) NOT NULL," +
+        "PRIMARY KEY (USERNAME))";
+        
         try {
             budgetStatement = c.createStatement();
             budgetStatement.execute(budgetQuerry);
@@ -49,8 +57,43 @@ public class DBCreate {
             categoriesStatement.execute(categoriesQuerry);
             categoriesStatement.close();
             
+            usernameStatement = c.createStatement();
+            usernameStatement.execute(usernameQuerry);
+            usernameStatement.close();
+            
         } catch (SQLException sqlExcept) {
             sqlExcept.getSQLState();
+        }
+    }
+    
+    public void checkIfUserExists() throws SQLException {
+        UserName user = new UserName();
+        if (user.getUserName().equals("")) {
+            String tempUser = "";
+            TextInputDialog dialogAdd = new TextInputDialog();
+            dialogAdd.setTitle("Username dialog");
+            dialogAdd.setHeaderText("You are starting this application for the\nfirst time. Please, enter your name");
+            dialogAdd.setGraphic(new ImageView(this.getClass().getResource("/img/icon.png").toString()));
+
+            // Traditional way to get the response value.
+            Optional<String> result = dialogAdd.showAndWait();
+            if (result.isPresent() && !result.get().equals("")){
+                tempUser = result.get();
+                insertUserName(tempUser);
+            } else {
+                checkIfUserExists();
+            }
+        }
+    }
+    
+    public void insertUserName(String username) {
+        DBConnect connection = new DBConnect();
+        try {
+            insertStatement = connection.getConnection().createStatement();
+            insertStatement.execute("insert into BENJO.USERS values ('" + username + "')");
+            insertStatement.close();
+        } catch (SQLException sqlExcept) {
+            sqlExcept.printStackTrace();
         }
     }
     
@@ -87,7 +130,7 @@ public class DBCreate {
             stmt.close();
         } catch(Exception e){
             e.printStackTrace();
-            System.out.println("Error on Building Data"); 
+            System.out.println("Error on removing category"); 
         }
     }
     

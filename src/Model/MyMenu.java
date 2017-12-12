@@ -12,6 +12,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.TableView;
 import javafx.scene.image.ImageView;
 
 /**
@@ -34,13 +35,11 @@ public class MyMenu {
     
     public Label amountInfo;
     public Label descriptionInfo;
-    public Label walletBank;
     public Label dateInfo;
-    public Label categoryInfo;
     public Label balanceAmount;
     public Label bankAmount;
     
-    public MyMenu(ActionEvent event, MenuItem fileClose, MenuItem addCategory, MenuItem removeCategory, MenuItem helpAbout, MenuItem resetData, Label amountInfo, Label descriptionInfo, Label walletBank, Label dateInfo, Label categoryInfo, Label balanceAmount, Label bankAmount) throws IOException {
+    public MyMenu(String nameOfController, ActionEvent event, MenuItem fileClose, MenuItem addCategory, MenuItem removeCategory, MenuItem helpAbout, MenuItem resetData, Label amountInfo, Label descriptionInfo, Label dateInfo, Label balanceAmount, Label bankAmount, TableView tableView) throws IOException {
         MyDialog dialog = new MyDialog();
         
         if (event.getSource() == fileClose) {
@@ -92,6 +91,7 @@ public class MyMenu {
             alert1.setHeaderText("Are you sure you want to reset data stored in database? \nAll your data will be lost.");
             alert1.setContentText("Are you ok with this?");
 
+
             Optional<ButtonType> result = alert1.showAndWait();
             if (result.get() == ButtonType.OK){
                 try {
@@ -99,14 +99,19 @@ public class MyMenu {
                 } catch (Exception ex) {
                     Logger.getLogger(DashboardController.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                //initialize again dashboard window values
-                walletBank.setText("");
-                amountInfo.setText("");
-                descriptionInfo.setText("");
-                dateInfo.setText("");
-                categoryInfo.setText("");
-                balanceAmount.setText("null KM");
-                bankAmount.setText("null KM");
+               // check in which conttroller we are
+                if(nameOfController.equals("dashboard")) {
+                    //initialize again dashboard window values
+                    amountInfo.setText("");
+                    descriptionInfo.setText("");
+                    dateInfo.setText("");
+                    balanceAmount.setText("null KM");
+                    bankAmount.setText("null KM");
+                } else if (nameOfController.equals("table")){
+                    for ( int i = 0; i<tableView.getItems().size(); i++) {
+                        tableView.getItems().clear();
+                    }
+                }
                 //confirming alert
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Reset data");
@@ -118,7 +123,7 @@ public class MyMenu {
             }
             
             
-        } else if(event.getSource() == helpAbout) {
+        } else if(event.getSource() == helpAbout) { 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("About myBudget");
             alert.setHeaderText("");
@@ -130,7 +135,8 @@ public class MyMenu {
                     + "\n\nBenjamin Fajić"
                     + "\n2017 \u00a9 All rights reserved.");
             alert.setGraphic(new ImageView(this.getClass().getResource("/img/icon.png").toString()));
-            alert.showAndWait();
+            alert.showAndWait();  
+            
         }
     }
 }

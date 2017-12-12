@@ -12,11 +12,9 @@ import javafx.scene.control.Label;
 public class LastInput {
     public Label amountInfo;
     public Label descriptionInfo;
-    public Label walletBank;
     public Label dateInfo;
-    public Label categoryInfo;
     
-    public LastInput(Label amountInfo, Label descriptionInfo, Label walletBank, Label dateInfo, Label categoryInfo) {
+    public LastInput(Label amountInfo, Label descriptionInfo, Label dateInfo) {
         DBConnect connection = new DBConnect();
           
           try{
@@ -32,11 +30,9 @@ public class LastInput {
                     //Iterate Column
                     row.add(rs.getString(i));
                 }
-                walletBank.setText(row.get(3));
-                amountInfo.setText(row.get(4));
+                amountInfo.setText(row.get(4) + " KM");
                 descriptionInfo.setText(row.get(1));
                 dateInfo.setText(row.get(0));
-                categoryInfo.setText(row.get(2));
                 break;
             }
     } catch(Exception e){
