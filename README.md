@@ -1,11 +1,11 @@
 # myBudget.
 
 
->myBudget is desktop application for any OS with Java installed on it. It is written in Java programming language, using JavaFX library for UI components and JavaDB for storing data. It is open-source project so you can download the code from this repository or download compiled **.jar** version from link below. If you are downloading code, make sure you also include jfoenix library included in your new project, as well as default Java DB driver libraries.
+>myBudget is desktop application for any OS with Java installed on it. It is written in Java programming language, using JavaFX library for UI components and JavaDB for storing data. It is open-source project so you can download the code from this repository or download compiled executable version from links below. If you are downloading code, make sure you also include jfoenix library included in your new project, as well as default Java DB driver libraries.
 
   - Version: 1.0 (latest stable release 1.0.3)
   - Release date: 16.10.2017
-  - Download link: [Windows](https://www.dropbox.com/s/wz1uwegqtn3cc7j/v1.0.3.zip?dl=1) | [macOS](https://www.dropbox.com/s/hsf0jo1nu5o2zjm/myBudget.dmg?dl=1)
+  - Download link: [Windows](https://www.dropbox.com/s/q98xjogl6x3ijv9/myBudget.zip?dl=1) | [macOS](https://www.dropbox.com/s/hsf0jo1nu5o2zjm/myBudget.dmg?dl=1)
   
 #### What's new in update 1.0.3
   - Complete redesign of GUI
