@@ -3,7 +3,7 @@
 
 >myBudget is desktop application for any OS with Java installed on it. Note that if you choose to download one of options below (Windows or Mac), Java runtime is bundled together, so it is ready-to-use application.
 
-It is written in Java programming language, using JavaFX library for UI components and JavaDB for storing data. You can download the code from this repository or download executable version from links below. If you are downloading code, make sure you also include jfoenix library (you can find it in this repository) included in your new project, as well as default Java DB driver libraries.
+It is written in Java programming language, using JavaFX library for UI components and JavaDB for storing data. You can download the code from this repository or download executable version from links below. If you are downloading code, make sure you also include jfoenix library (you can find it in this repository) in your new project, as well as default Java DB driver libraries.
 
   - Version: 1.0 (latest stable release 1.0.3)
   - Release date: 16.10.2017
