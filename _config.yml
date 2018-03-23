@@ -1,5 +1,5 @@
 theme: jekyll-theme-cayman
 show_downloads: true
 github:
-  zip_url: https://www.dropbox.com/s/q98xjogl6x3ijv9/myBudget.zip?dl=1
-  another_url: another value
+  zip_url: https://www.dropbox.com/s/hsf0jo1nu5o2zjm/myBudget.dmg?dl=1
+  tar_url: https://www.dropbox.com/s/q98xjogl6x3ijv9/myBudget.zip?dl=1
