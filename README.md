@@ -24,3 +24,7 @@ If you are downloading code, make sure you also include jfoenix library (you can
   - Check your transactions in ordered (by date) table in UI
   - Customize categories (add/remove your own categories)
   - Filtered search (by date, description or category)
+  
+### Download
+- [Windows](https://www.dropbox.com/s/q98xjogl6x3ijv9/myBudget.zip?dl=1)
+- [macOS](https://www.dropbox.com/s/hsf0jo1nu5o2zjm/myBudget.dmg?dl=1)
