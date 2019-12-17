@@ -1,6 +1,8 @@
 # myBudget
 
->myBudget is desktop application for any OS with Java installed on it. Note that if you choose to download one of the app options (Windows or Mac), Java runtime is bundled together, so it is ready-to-use application.
+![Screenshot](https://i.imgur.com/WTCXJ6d.png)
+
+>💰myBudget is desktop application for any OS with Java installed on it. Note that if you choose to download one of the app options (Windows or Mac), Java runtime is bundled together, so it is ready-to-use application.
 
 - Version: 1.0
 - Latest stable release: 1.0.3
